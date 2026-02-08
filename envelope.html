@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You 💌</title>
+
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    #3a2a38 0%,
+    #30202d 60%,
+    #251822 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: system-ui, sans-serif;
+}
+
+/* Envelope container */
+.envelope {
+  width: min(85vw, 440px);
+  height: 280px;
+  position: relative;
+  cursor: pointer;
+  filter:
+    drop-shadow(0 25px 40px rgba(0,0,0,0.6))
+    drop-shadow(0 0 25px rgba(235,92,154,0.35));
+}
+
+/* Envelope base */
+.base {
+  width: 100%;
+  height: 100%;
+  background: #f3e7da;
+  border-radius: 10px;
+}
+
+/* Envelope flap */
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 220px solid transparent;
+  border-right: 220px solid transparent;
+  border-top: 150px solid #e7d2be;
+  transform-origin: top;
+  transition: transform 0.7s ease;
+}
+
+/* Letter */
+.letter {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.7s ease, opacity 0.7s ease;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+/* Sticker inside letter */
+.letter img {
+  width: 90px;
+  margin-bottom: 14px;
+}
+
+/* Text styling (matches other pages) */
+.letter p {
+  color: #7a707e;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.highlight {
+  color: #eb5c9a;
+  font-weight: 600;
+  text-shadow:
+    0 4px 12px rgba(235,92,154,0.45),
+    0 0 18px rgba(235,92,154,0.35);
+}
+
+/* Open animation */
+.open .flap {
+  transform: rotateX(180deg);
+}
+
+.open .letter {
+  transform: translateY(-70px);
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+
+<div class="envelope" onclick="this.classList.add('open')">
+  <div class="flap"></div>
+  <div class="base"></div>
+
+  <div class="letter">
+    <!-- Sticker -->
+    <img src="Love-cat.png" alt="love sticker">
+
+    <p class="highlight">
+      I choose you.
+    </p>
+
+    <p>
+      Not just today,<br>
+      not just when it’s easy,<br>
+      but every day —<br>
+      for as long as I get to.
+    </p>
+
+    ❤️
+  </div>
+</div>
+
+</body>
+</html>
